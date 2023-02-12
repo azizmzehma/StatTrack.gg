@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Match table!{% endblock %}
+
+{% block body %}
+<div class="container">
+<h1> Match TAble:  </h1>
+ {% for message in app.flashes('notice') %}
+        <div class="alert alert-success mt-4 mb-b">
+            {{message}}
+        </div>
+    {% endfor %}
+    <div class="create botton">
+     <a class="btn btn-warning mt-4 mb-b" href="{{ path('create') }}">create match</a> 
+    </div>
+    <table class="table">
+  <thead>
+    <tr class="table-active">    
+      <th scope="col">#</th>
+      <th scope="col">team1name</th>
+      <th scope="col">team2name</th>
+      <th scope="col">matchWiner</th>
+      <th scope="col">Gamerplayed</th>
+      <th scope="col">match time</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in matchlist %}
+    <tr class="table-{% if data.matchtime < date() %}danger {% else %}warning{% endif %}">
+      <th scope="row">{{data.id}} </th>
+      <td>{{data.team1name|upper}}</td>
+      <td>{{data.team2name|upper}}</td>
+      <td>{{data.teamwiner}}</td>
+      <td>{{data.game}}</td>
+        <td>{{ data.matchtime|date("Y-m-d H:i:s") }}</td>
+       <td>
+        <a class="btn btn-warning" href="{{ path('update',{'id': data.id }) }}">update</a>
+        <a class="btn btn-danger" href="{{ path('delete',{'id': data.id }) }}">delete</a>
+        </td>
+    </tr>
+    {% else %}
+    <h3 style="color:Green;">there is no match!!!!!</h3>
+
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
