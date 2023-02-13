@@ -1,0 +1,92 @@
+.create-offer-form {
+    margin-top: 50px;
+}
+
+.card-header {
+    background-color: #6b5b95;
+    color: #fff;
+    font-size: 24px;
+    padding: 15px 20px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.form-control {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #6b5b95;
+    box-shadow: none;
+}
+
+.form-group label {
+    color: #6b5b95;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #6b5b95;
+    border-color: #6b5b95;
+}
+
+.btn-primary:hover {
+    background-color: #563d7c;
+    border-color: #563d7c;
+}
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+/* table */
+.table {
+    margin-top: 50px;
+}
+
+.card-header {
+    background-color: #6b5b95;
+    color: #fff;
+    font-size: 24px;
+    padding: 15px 20px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.table thead th {
+    color: #6b5b95;
+    font-weight: bold;
+    border-bottom: 2px solid #6b5b95;
+}
+
+.table tbody tr {
+    transition: all 0.3s;
+}
+
+.table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.table td {
+    border: none;
+    border-radius: 0;
+    border-bottom: 2px solid #6b5b95;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #6b5b95;
+    border-color: #6b5b95;
+}
+
+.btn-primary:hover {
+    background-color: #563d7c;
+    border-color: #563d7c;
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+

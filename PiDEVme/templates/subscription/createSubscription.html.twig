@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Subscription{% endblock %}
+
+{% block body %}
+<head>
+
+    <link rel="stylesheet" href="{{ asset('css/createOffer.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/createOffer.js') }}">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-4">
+                <div class="card shadow-lg">
+                    <div class="card-header">
+                        <h4>Create Subscription</h4>
+                    </div>
+                    </head>
+
+                    <div class="card-body">
+                        {{ form_start(form, {'attr': {'class': 'subscription-form'}}) }}
+                        {{ form_row(form.subscription_id, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Subscription ID'}}) }}
+                        {{ form_row(form.user_id, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Name'}}) }}
+                        {{ form_row(form.end_date, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Duration'}}) }}
+                        {{ form_widget(form.ajouter, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

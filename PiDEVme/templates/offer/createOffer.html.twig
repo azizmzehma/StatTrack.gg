@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Offer{% endblock %}
+
+{% block body %}
+    <head>
+
+        <link rel="stylesheet" href="{{ asset('css/createOffer.css') }}">
+        <link rel="stylesheet" href="{{ asset('js/createOffer.js') }}">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 mt-4">
+                <div class="card shadow-lg">
+                    <div class="card-header">
+                        <h4>Create Offer</h4>
+                    </div>
+                    </head>
+
+                    <div class="card-body">
+                        {{ form_start(f, {'attr': {'class': 'offer-form'}}) }}{{ form_row(f.name, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Name'}}) }}
+                        {{ form_row(f.description, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Description'}}) }}
+                        {{ form_row(f.price, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Price'}}) }}
+                        {{ form_row(f.duration, {'attr': {'class': 'form-control mb-3', 'placeholder': 'Duration'}}) }}
+                        {{ form_widget(f.ajouter, {'attr': {'class': 'btn btn-primary btn-block'}}) }}
+                        {{ form_end(f) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
