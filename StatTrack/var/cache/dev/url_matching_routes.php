@@ -16,6 +16,8 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_main', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
         '/create' => [[['_route' => 'create', '_controller' => 'App\\Controller\\MainController::create'], null, null, null, false, false, null]],
+        '/tournament' => [[['_route' => 'app_tournament_index', '_controller' => 'App\\Controller\\TournamentController::index'], null, ['GET' => 0], null, true, false, null]],
+        '/tournament/new' => [[['_route' => 'app_tournament_new', '_controller' => 'App\\Controller\\TournamentController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -36,6 +38,11 @@ return [
                 .')'
                 .'|/update/([^/]++)(*:185)'
                 .'|/delete/([^/]++)(*:209)'
+                .'|/tournament/([^/]++)(?'
+                    .'|(*:240)'
+                    .'|/edit(*:253)'
+                    .'|(*:261)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -47,8 +54,11 @@ return [
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         185 => [[['_route' => 'update', '_controller' => 'App\\Controller\\MainController::update'], ['id'], null, null, false, true, null]],
-        209 => [
-            [['_route' => 'delete', '_controller' => 'App\\Controller\\MainController::delete'], ['id'], null, null, false, true, null],
+        209 => [[['_route' => 'delete', '_controller' => 'App\\Controller\\MainController::delete'], ['id'], null, null, false, true, null]],
+        240 => [[['_route' => 'app_tournament_show', '_controller' => 'App\\Controller\\TournamentController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        253 => [[['_route' => 'app_tournament_edit', '_controller' => 'App\\Controller\\TournamentController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        261 => [
+            [['_route' => 'app_tournament_delete', '_controller' => 'App\\Controller\\TournamentController::delete'], ['id'], ['POST' => 0], null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

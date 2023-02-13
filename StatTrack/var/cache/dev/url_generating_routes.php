@@ -20,4 +20,9 @@ return [
     'create' => [[], ['_controller' => 'App\\Controller\\MainController::create'], [], [['text', '/create']], [], [], []],
     'update' => [['id'], ['_controller' => 'App\\Controller\\MainController::update'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/update']], [], [], []],
     'delete' => [['id'], ['_controller' => 'App\\Controller\\MainController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/delete']], [], [], []],
+    'app_tournament_index' => [[], ['_controller' => 'App\\Controller\\TournamentController::index'], [], [['text', '/tournament/']], [], [], []],
+    'app_tournament_new' => [[], ['_controller' => 'App\\Controller\\TournamentController::new'], [], [['text', '/tournament/new']], [], [], []],
+    'app_tournament_show' => [['id'], ['_controller' => 'App\\Controller\\TournamentController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tournament']], [], [], []],
+    'app_tournament_edit' => [['id'], ['_controller' => 'App\\Controller\\TournamentController::edit'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/tournament']], [], [], []],
+    'app_tournament_delete' => [['id'], ['_controller' => 'App\\Controller\\TournamentController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/tournament']], [], [], []],
 ];

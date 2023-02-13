@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+
+    <div class="row">
+          <h3 class="mt-5 mb-5" style="font-size: 22px;font-weight: bold;text-align: center;color: #333;margin-top: 30px;margin-bottom: 10px;position:relative;left: -200px;"> 
+         Update Match
+         </h3>
+  
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-success">
+            {{message}}
+        </div>
+    {% endfor %}
+        <div class="col-md-6 offset-md-3"> 
+            {{form_start(form)}}
+             <div class="group-form"> 
+                {{form_label(form.team1name)}}
+                {{form_widget(form.team1name,{'attr':{'class':'form-control'}})}}
+             </div>
+             <div class="group-form"> 
+                {{form_label(form.team2name)}}
+                {{form_widget(form.team2name,{'attr':{'class':'form-control'}})}}
+             </div>
+             <div class="group-form"> 
+                {{form_label(form.teamwiner)}}
+                {{form_widget(form.teamwiner,{'attr':{'class':'form-control'}})}}
+             </div>
+             <div class="group-form"> 
+                {{form_label(form.game)}}
+                {{form_widget(form.game,{'attr':{'class':'form-control'}})}}
+             </div>
+             <div class="group-form"> 
+                {{form_label(form.tournament)}}
+                {{form_widget(form.tournament,{'attr':{'class':'form-control'}})}}
+             </div>
+             <div class="group-form"> 
+                {{form_label(form.matchtime)}}
+                {{form_widget(form.matchtime)}}
+             </div>
+             <div class="group-form"> 
+                <button class="btn btn-info mt-2 btn-block">update</button>
+             </div>
+             
+             {{form_end(form)}}
+        </div>
+    </div>
+</div>
+{% endblock %}

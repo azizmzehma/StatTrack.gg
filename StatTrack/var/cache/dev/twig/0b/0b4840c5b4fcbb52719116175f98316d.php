@@ -77,22 +77,22 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 ";
         // line 285
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 407
+        // line 406
         echo "
 
 <div style=\"position:relative; left: 140px; top: 70px;\">
 ";
-        // line 410
+        // line 409
         $this->displayBlock('body', $context, $blocks);
-        // line 415
+        // line 416
         echo "</div>
 
 
 
 ";
-        // line 419
+        // line 420
         $this->displayBlock('footer', $context, $blocks);
-        // line 435
+        // line 436
         echo "
 
 </body>
@@ -265,8 +265,8 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
         <div class=\"d-flex align-items-center justify-content-between\">
             <a href=\"index.html\" class=\"logo d-flex align-items-center\">
-                <img src=\"assets/img/logo.png\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                <img src=\"assets/img/loggg.png\" alt=\"\">
+                <span class=\"d-none d-lg-block\">StatTrack</span>
             </a>
 
         </div><!-- End Logo -->
@@ -628,9 +628,11 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </a>
                     </li>
                     <li>
-
-                        <a href=\"forms-layouts.html\">
-                            <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
+                        <a href=\"";
+        // line 388
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tournament_index");
+        echo "\">
+                            <i class=\"bi bi-circle\"></i><span>Tournament List</span>
                         </a>
                     </li>
                     
@@ -655,7 +657,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 410
+    // line 409
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -665,8 +667,12 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 411
-        echo "
+        // line 410
+        echo "<a href=\"";
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("route_name");
+        echo "\">
+   <i class=\"fas fa-arrow-left\"></i>
+</a>
 
 
 ";
@@ -678,7 +684,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 419
+    // line 420
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -688,11 +694,11 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 420
+        // line 421
         echo "    <!-- ======= Footer ======= -->
     <footer id=\"footer\" class=\"footer\" style=\"top: 150px\">
         <div class=\"copyright\">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>StatTrack</span></strong>. All Rights Reserved
         </div>
         <div class=\"credits\">
             <!-- All the links in the footer should remain intact. -->
@@ -719,7 +725,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  692 => 420,  682 => 419,  669 => 411,  659 => 410,  625 => 383,  539 => 300,  523 => 286,  513 => 285,  447 => 227,  442 => 225,  439 => 224,  437 => 223,  262 => 50,  252 => 49,  238 => 41,  232 => 38,  228 => 37,  224 => 36,  220 => 35,  216 => 34,  212 => 33,  208 => 32,  204 => 31,  200 => 29,  190 => 28,  178 => 25,  172 => 22,  168 => 21,  164 => 20,  160 => 19,  156 => 18,  152 => 17,  148 => 16,  139 => 9,  129 => 8,  110 => 5,  96 => 435,  94 => 419,  88 => 415,  86 => 410,  81 => 407,  79 => 285,  76 => 284,  74 => 49,  68 => 45,  66 => 28,  63 => 27,  60 => 8,  56 => 5,  50 => 1,);
+        return array (  698 => 421,  688 => 420,  671 => 410,  661 => 409,  633 => 388,  625 => 383,  539 => 300,  523 => 286,  513 => 285,  447 => 227,  442 => 225,  439 => 224,  437 => 223,  262 => 50,  252 => 49,  238 => 41,  232 => 38,  228 => 37,  224 => 36,  220 => 35,  216 => 34,  212 => 33,  208 => 32,  204 => 31,  200 => 29,  190 => 28,  178 => 25,  172 => 22,  168 => 21,  164 => 20,  160 => 19,  156 => 18,  152 => 17,  148 => 16,  139 => 9,  129 => 8,  110 => 5,  96 => 436,  94 => 420,  88 => 416,  86 => 409,  81 => 406,  79 => 285,  76 => 284,  74 => 49,  68 => 45,  66 => 28,  63 => 27,  60 => 8,  56 => 5,  50 => 1,);
     }
 
     public function getSourceContext()
@@ -779,8 +785,8 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
         <div class=\"d-flex align-items-center justify-content-between\">
             <a href=\"index.html\" class=\"logo d-flex align-items-center\">
-                <img src=\"assets/img/logo.png\" alt=\"\">
-                <span class=\"d-none d-lg-block\">NiceAdmin</span>
+                <img src=\"assets/img/loggg.png\" alt=\"\">
+                <span class=\"d-none d-lg-block\">StatTrack</span>
             </a>
 
         </div><!-- End Logo -->
@@ -1111,9 +1117,8 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </a>
                     </li>
                     <li>
-
-                        <a href=\"forms-layouts.html\">
-                            <i class=\"bi bi-circle\"></i><span>Form Layouts</span>
+                        <a href=\"{{ path('app_tournament_index') }}\">
+                            <i class=\"bi bi-circle\"></i><span>Tournament List</span>
                         </a>
                     </li>
                     
@@ -1134,7 +1139,9 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
 <div style=\"position:relative; left: 140px; top: 70px;\">
 {% block body %}
-
+<a href=\"{{ path('route_name') }}\">
+   <i class=\"fas fa-arrow-left\"></i>
+</a>
 
 
 {% endblock %}
@@ -1146,7 +1153,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
     <!-- ======= Footer ======= -->
     <footer id=\"footer\" class=\"footer\" style=\"top: 150px\">
         <div class=\"copyright\">
-            &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>StatTrack</span></strong>. All Rights Reserved
         </div>
         <div class=\"credits\">
             <!-- All the links in the footer should remain intact. -->

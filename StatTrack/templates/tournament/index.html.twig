@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tournament index{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Tournament List</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>description</th>
+                <th>prise</th>
+                <th>Startdate</th>
+                <th>Enddate</th>
+                <th>photo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tournament in tournaments %}
+            <tr>
+                <td>{{ tournament.id }}</td>
+                <td>{{ tournament.name }}</td>
+                <td>{{ tournament.description }}</td>
+                <td>{{ tournament.prise }}</td>
+                <td>{{ tournament.startdate ? tournament.startdate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ tournament.enddate ? tournament.enddate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ tournament.photo }}</td>
+                
+                
+                <td>
+                <a class="btn btn-warning" href="{{ path('app_tournament_show',{'id': tournament.id }) }}">show</a>
+                <a class="btn btn-danger" href="{{ path('app_tournament_edit',{'id': tournament.id }) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="create botton">
+     <a class="btn btn-warning mt-4 mb-b" href="{{ path('app_tournament_new') }}">Create tournament</a> 
+    </div>
+    </div>
+{% endblock %}
