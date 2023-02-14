@@ -37,15 +37,18 @@
                     <td>{{ offer.price }}</td>
                     <td>{{ offer.duration }}</td>
                     <td>
-                        <a href="{{ path('add_offer') }}" class="btn btn-primary">Add an offer</a>
                         <a href="{{ path('delete_offer',{ 'id': offer.id }) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this offer?');">Delete</a>
-                        <a href="{{ path('edit_offer',{ 'id': offer.id }) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this offer?');">Edit</a>
+                        <a href="{{ path('edit_offer',{ 'id': offer.id }) }}" class="btn btn-warning" onclick="return confirm('Are you sure you want to delete this offer?');">Edit</a>
 
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        <div>
+            <a href="{{ path('add_offer') }}" class="btn btn-primary">Add an offer</a>
+
+        </div>
 
         {% for label, messages in app.flashes %}
             {% for message in messages %}

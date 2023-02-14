@@ -41,13 +41,14 @@ class SubscriptionController extends AbstractController
 
 
 
-    #[Route('/delete_subscription/{subscription_id}', name: 'delete_subscription')]
-    public function delete_subscription(Request $request, EntityManagerInterface $entityManager, $subscription_id): Response
+
+    #[Route('/delete_subscription/{id}', name: 'delete_subscription')]
+    public function delete_subscription(Request $request, EntityManagerInterface $entityManager, $id): Response
     {
-        $subscription = $entityManager->getRepository(Subscription::class)->find($subscription_id);
+        $subscription = $entityManager->getRepository(Subscription::class)->find($id);
 
         if (!$subscription) {
-            throw $this->createNotFoundException('No subscription found for id '.$subscription_id);
+            throw $this->createNotFoundException('No subscription found for id '.$id);
         }
 
         $entityManager->remove($subscription);
@@ -56,10 +57,12 @@ class SubscriptionController extends AbstractController
         return $this->redirectToRoute('app_subscription');
     }
 
-    #[Route('/edit_subscription/{subscription_id}', name: 'edit_subscription')]
-    public function edit_subscription(Request $request, $subscription_id, EntityManagerInterface $entityManager): Response
+    #[Route('/edit_subscription/{id}', name: 'edit_subscription')]
+    public function edit_subscription(Request $request, $id, EntityManagerInterface $entityManager): Response
     {
-        $subscription = $entityManager->getRepository(Subscription::class)->find($subscription_id);
+
+        $subscription = $entityManager->getRepository(Subscription::class)->find($id);
+        $subscription->setStartDate(new \DateTime()); // set the start date to the current date and time
 
         $form = $this->createForm(SubscriptionType::class, $subscription);
 

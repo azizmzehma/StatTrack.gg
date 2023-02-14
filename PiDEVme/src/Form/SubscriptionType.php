@@ -15,13 +15,11 @@ class SubscriptionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('subscription_id')
             ->add('user_id')
             ->add('offer', EntityType::class, [
                 'class' => Offer::class,
                 'choice_label' => 'name',
             ])
-            ->add('end_date')
             ->add('ajouter',SubmitType::class)
         ;
     }

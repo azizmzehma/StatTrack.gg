@@ -14,12 +14,10 @@ class Subscription
     #[ORM\Column]
     public ?int $id = null;
 
-    #[ORM\OneToOne(targetEntity: Offer::class)]
+    #[ORM\ManyToOne(targetEntity: Offer::class)]
     #[ORM\JoinColumn(name: "offer_id", referencedColumnName: "id")]
     public ?Offer $offer = null;
 
-    #[ORM\Column]
-    public ?int $subscription_id = null;
 
     #[ORM\Column]
     public ?int $user_id = null;
@@ -30,21 +28,10 @@ class Subscription
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     public ?\DateTimeInterface $end_date = null;
 
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getSubscriptionId(): ?int
-    {
-        return $this->subscription_id;
-    }
-
-    public function setSubscriptionId(int $subscription_id): self
-    {
-        $this->subscription_id = $subscription_id;
-
-        return $this;
     }
 
     public function getUserId(): ?int
@@ -67,6 +54,7 @@ class Subscription
     public function setStartDate(\DateTimeInterface $start_date): self
     {
         $this->start_date = $start_date;
+        $this->calculateEndDate();
 
         return $this;
     }
@@ -76,9 +64,11 @@ class Subscription
         return $this->end_date;
     }
 
-    public function setEndDate(\DateTimeInterface $end_date): self
+    public function setEndDate(\DateTimeInterface $end_date ,$start_date, $duration): self
     {
         $this->end_date = $end_date;
+        $end_date = clone $start_date;
+        $end_date->modify("+{$duration} day");
 
         return $this;
     }
@@ -91,6 +81,7 @@ class Subscription
     public function setOffer(?Offer $offer): self
     {
         $this->offer = $offer;
+        $this->calculateEndDate();
 
         return $this;
     }
@@ -99,4 +90,12 @@ class Subscription
     {
         return $this->offer ? $this->offer->getDuration() : null;
     }
+
+    private function calculateEndDate(): void
+    {
+        if ($this->start_date && $this->offer && $this->offer->getDuration()) {
+            $this->end_date = (clone $this->start_date)->modify('+' . $this->offer->getDuration() . ' months');
+        }
+    }
 }
+
