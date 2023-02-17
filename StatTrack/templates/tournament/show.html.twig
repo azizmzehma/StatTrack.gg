@@ -31,7 +31,10 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ tournament.photo }}</td>
+                 <td>
+                         <img src="{{ asset('assets/img/' ~ tournament.photo) }}" alt="{{ tournament.photo }}" style="width: 75px; height: 75;">
+        
+                 </td>
             </tr>
             <tr>
                 <th>Name</th>

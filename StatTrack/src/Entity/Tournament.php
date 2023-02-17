@@ -69,7 +69,7 @@ class Tournament
     {
         if ($this->matches->removeElement($match)) {
             // set the owning side to null (unless already changed)
-            if ($match->getTournament() === $this) {
+            if($match->getTournament() === $this) {
                 $match->setTournament(null);
             }
         }

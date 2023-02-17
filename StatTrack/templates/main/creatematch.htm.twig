@@ -11,18 +11,23 @@
                            margin-top: 30px;
                                margin-bottom: 10px;"> Create Match</h3>
             <div class="col-md-6 offset-md-3"> 
-            {{form_start(form)}}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
              <div class="group-form"> 
                 {{form_label(form.team1name)}}
                 {{form_widget(form.team1name,{'attr':{'class':'form-control'}})}}
+                  <div class="text-danger">{{ form_errors(form.team1name)}}</div>
+              
              </div>
              <div class="group-form"> 
                 {{form_label(form.team2name)}}
                 {{form_widget(form.team2name,{'attr':{'class':'form-control'}})}}
+                <div class="text-danger">{{ form_errors(form.team2name)}}</div>
              </div>
              <div class="group-form"> 
                 {{form_label(form.teamwiner)}}
                 {{form_widget(form.teamwiner,{'attr':{'class':'form-control'}})}}
+               <div class="text-danger">{{ form_errors(form.teamwiner)}}</div>
+
              </div>
              <div class="group-form"> 
                 {{form_label(form.game)}}

@@ -33,7 +33,7 @@
              </div>
              <div class="group-form"> 
                 {{form_label(form.photo)}}
-                {{form_widget(form.photo,{'attr':{'class':'form-control'}})}}
+                {{form_widget(form.photo)}}
              </div>
              
              <div class="group-form"> 
@@ -44,10 +44,10 @@
                 {{form_label(form.enddate)}}
                 {{form_widget(form.enddate)}}
              </div>
-             <div class="group-form"> 
-                <button class="btn btn-info mt-2 btn-block">Submit</button>
-             </div>
              
+             <div class="group-form">
+             {{ form_widget(form.submit) }}
+             </div>
              {{form_end(form)}}
         </div>
     </div>

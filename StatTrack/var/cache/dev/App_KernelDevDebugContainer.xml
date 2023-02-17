@@ -69,6 +69,7 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="tournament_directory">C:\xampp\htdocs\Symfonyproject\StatTrack/public/assets/img</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -332,6 +333,13 @@
       <tag name="controller.service_arguments"/>
       <tag name="routing.route_loader"/>
     </service>
+    <service id="App\Controller\FrontController" class="App\Controller\FrontController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\FrontController"/>
+      </call>
+    </service>
     <service id="App\Controller\MainController" class="App\Controller\MainController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -367,6 +375,7 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Validator\Constraints\TeamwinerIsOneOfTeams" class="App\Validator\Constraints\TeamwinerIsOneOfTeams" autowire="true" autoconfigure="true"/>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
       <tag name="kernel.event_subscriber"/>
@@ -5861,6 +5870,9 @@
     <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter">
       <argument type="service" id="argument_metadata_factory"/>
     </service>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FrontController" class="App\Controller\FrontController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FrontController" class="App\Controller\FrontController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\FrontController" class="App\Controller\FrontController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -6214,12 +6226,6 @@
         <argument key="loader" type="service_closure" id=".errored..service_locator.xUrKPVU.Symfony\Component\Config\Loader\LoaderInterface"/>
       </argument>
     </service>
-    <service id=".service_locator.GQZbvNR" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="doctrine" type="service_closure" id="doctrine"/>
-      </argument>
-    </service>
     <service id=".service_locator.GximPb7" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6233,6 +6239,19 @@
         <argument key="tournament" type="service_closure" id=".errored..service_locator.xLYGlIC.App\Entity\Tournament"/>
       </argument>
     </service>
+    <service id=".service_locator.GQZbvNR" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="doctrine" type="service_closure" id="doctrine"/>
+      </argument>
+    </service>
+    <service id=".service_locator.jFx2nzK" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="slugger" type="service_closure" id="slugger"/>
+        <argument key="tournamentRepository" type="service_closure" id="App\Repository\TournamentRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.EifR2VW" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6240,9 +6259,11 @@
         <argument key="tournamentRepository" type="service_closure" id="App\Repository\TournamentRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.428_CEe" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._usd3vE" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\FrontController::front_tournament" type="service_closure" id=".service_locator.GximPb7"/>
+        <argument key="App\Controller\FrontController::front_tournament_show" type="service_closure" id=".service_locator.xLYGlIC"/>
         <argument key="App\Controller\MainController::create" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\MainController::delete" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\MainController::index" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -6250,12 +6271,14 @@
         <argument key="App\Controller\TournamentController::delete" type="service_closure" id=".service_locator.EifR2VW"/>
         <argument key="App\Controller\TournamentController::edit" type="service_closure" id=".service_locator.EifR2VW"/>
         <argument key="App\Controller\TournamentController::index" type="service_closure" id=".service_locator.GximPb7"/>
-        <argument key="App\Controller\TournamentController::new" type="service_closure" id=".service_locator.GximPb7"/>
+        <argument key="App\Controller\TournamentController::new" type="service_closure" id=".service_locator.jFx2nzK"/>
         <argument key="App\Controller\TournamentController::show" type="service_closure" id=".service_locator.xLYGlIC"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
+        <argument key="App\Controller\FrontController:front_tournament" type="service_closure" id=".service_locator.GximPb7"/>
+        <argument key="App\Controller\FrontController:front_tournament_show" type="service_closure" id=".service_locator.xLYGlIC"/>
         <argument key="App\Controller\MainController:create" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\MainController:delete" type="service_closure" id=".service_locator.GQZbvNR"/>
         <argument key="App\Controller\MainController:index" type="service_closure" id=".service_locator.GQZbvNR"/>
@@ -6263,7 +6286,7 @@
         <argument key="App\Controller\TournamentController:delete" type="service_closure" id=".service_locator.EifR2VW"/>
         <argument key="App\Controller\TournamentController:edit" type="service_closure" id=".service_locator.EifR2VW"/>
         <argument key="App\Controller\TournamentController:index" type="service_closure" id=".service_locator.GximPb7"/>
-        <argument key="App\Controller\TournamentController:new" type="service_closure" id=".service_locator.GximPb7"/>
+        <argument key="App\Controller\TournamentController:new" type="service_closure" id=".service_locator.jFx2nzK"/>
         <argument key="App\Controller\TournamentController:show" type="service_closure" id=".service_locator.xLYGlIC"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.xUrKPVU"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.xUrKPVU"/>
@@ -6793,6 +6816,12 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\FrontController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\FrontController"/>
+      <argument>App\Controller\FrontController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
     <service id=".service_locator.jIxfAsi.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MainController"/>
       <argument>App\Controller\MainController</argument>
@@ -7071,12 +7100,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.428_CEe"/>
+      <argument type="service" id=".service_locator._usd3vE"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.428_CEe"/>
+      <argument type="service" id=".service_locator._usd3vE"/>
     </service>
     <service id="debug.traced.messenger.bus.default.inner" class="Symfony\Component\Messenger\MessageBus">
       <argument type="iterator">
@@ -8011,7 +8040,7 @@
     <service id="sensio_framework_extra.security.expression_language" alias="sensio_framework_extra.security.expression_language.default"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.gSv9zYw" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.428_CEe"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator._usd3vE"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -8033,7 +8062,8 @@
     <service id=".service_locator.h8Jkkd2" alias="messenger.retry_strategy_locator"/>
     <service id=".service_locator.0GV1BZZ" alias=".service_locator.gSv9zYw"/>
     <service id=".service_locator.7w53P5I" alias=".service_locator.xLYGlIC"/>
-    <service id=".service_locator.g13boFP" alias=".service_locator.428_CEe"/>
+    <service id=".service_locator.85nYhBP" alias=".service_locator.jFx2nzK"/>
+    <service id=".service_locator.m0UKqbT" alias=".service_locator._usd3vE"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.19_mNxd"/>
     <service id=".service_locator..o4cMlS" alias=".service_locator.KiXA5Op"/>
     <service id=".service_locator.XW18Svm" alias=".service_locator.TcKhdzh"/>
@@ -8083,9 +8113,10 @@
     <service id="messenger.bus.default" alias="debug.traced.messenger.bus.default"/>
     <service id="doctrine.orm.default_metadata_driver" alias=".doctrine.orm.default_metadata_driver"/>
     <service id=".service_locator.uo5c0SP" alias=".service_locator.xUrKPVU"/>
-    <service id=".service_locator.FPFiL9q" alias=".service_locator.GQZbvNR"/>
     <service id=".service_locator.MN4_VUJ" alias=".service_locator.GximPb7"/>
     <service id=".service_locator.ixlrJGM" alias=".service_locator.xLYGlIC"/>
+    <service id=".service_locator.FPFiL9q" alias=".service_locator.GQZbvNR"/>
+    <service id=".service_locator.TImxfnL" alias=".service_locator.jFx2nzK"/>
     <service id=".service_locator.dXln4in" alias=".service_locator.EifR2VW"/>
     <service id=".service_locator.eAaUVIw" alias=".service_locator.jIxfAsi"/>
     <service id=".service_locator.u6DWx23" alias=".service_locator.cXsfP3P"/>

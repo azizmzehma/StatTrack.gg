@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\MmatchRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: MmatchRepository::class)]
 class Mmatch
@@ -15,15 +17,22 @@ class Mmatch
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: "team 1 can't be blank")]
+    #[Assert\Length(max:10,maxMessage : "taill")]
     private ?string $team1name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(["message" => "Team  2 can't be blank"])]
     private ?string $team2name = null;
 
+    #[CustomAssert\TeamwinerIsOneOfTeams]
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(["message" => "Team can't be blank"])]
     private ?string $teamwiner = null;
 
+   
     #[ORM\Column(length: 255)]
+   #[Assert\NotBlank(["message" => "game can't be blank"])]
     private ?string $game = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]

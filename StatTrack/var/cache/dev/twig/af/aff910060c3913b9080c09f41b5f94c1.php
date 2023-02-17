@@ -85,7 +85,7 @@ class __TwigTemplate_f370706b455269696df4f8b56a2464be extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<div class=\"container\">
+        echo "<div class=\"container\" >
 <h1> Match TAble:  </h1>
  ";
         // line 8
@@ -220,7 +220,7 @@ class __TwigTemplate_f370706b455269696df4f8b56a2464be extends Template
 {% block title %}Match table!{% endblock %}
 
 {% block body %}
-<div class=\"container\">
+<div class=\"container\" >
 <h1> Match TAble:  </h1>
  {% for message in app.flashes('notice') %}
         <div class=\"alert alert-success mt-4 mb-b\">

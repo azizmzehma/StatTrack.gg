@@ -1,0 +1,72 @@
+{% extends "front.html.twig" %}
+
+{% block body %}
+
+  <section class="matches-area ptb-100">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">Matches</span>
+                    <h2>{{ tournament.name }} Tournament</h2>
+                </div>
+
+                
+
+             
+                {% for data in matchlist %}
+                <div class="single-matches-box">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 col-md-12">
+                            <div class="matches-team">
+                                <img src="assets/img/team7.png" class="wow animate__animated animate__fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms" alt="image">
+
+                                <div class="content">
+                                    <h3><a href="single-team.html">{{data.team2name|upper}}</a></h3>
+                                    <ul class="watch-list">
+                                        <li><span>Watch</span></li>
+                                        <li><a href="#" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Watch on YouTube"><i class='bx bxl-youtube'></i></a></li>
+                                        <li><a href="#" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Watch on Twitch"><i class='bx bxl-twitch'></i></a></li>
+                                        <li><a href="#" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Watch on Vimeo"><i class='bx bxl-vimeo'></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-12">
+                            <div class="matches-result">
+                                <ul>
+                                    <li>VS</li>
+                                </ul>
+                                <span class="date-time">{{ data.matchtime|date("Y-m-d H:i:s") }}</span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-5 col-md-12">
+                            <div class="matches-team right-image">
+                                <img src="assets/img/team8.png" class="wow animate__animated animate__fadeInRight" data-wow-delay="300ms" data-wow-duration="1500ms" alt="image">
+
+                                <div class="content">
+                                    <h3><a href="single-team.html">{{data.team1name|upper}}</a></h3>
+                                    <ul class="watch-list">
+                                        <li><a href="#" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Watch on YouTube"><i class='bx bxl-youtube'></i></a></li>
+                                        <li><a href="#" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Watch on Twitch"><i class='bx bxl-twitch'></i></a></li>
+                                        <li><a href="#" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Watch on Vimeo"><i class='bx bxl-vimeo'></i></a></li>
+                                        <li><span>Watch</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="shape1"><img src="assets/img/shape1.png" class="wow animate__animated animate__fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image"></div>
+            <div class="shape2"><img src="assets/img/shape2.png" class="wow animate__animated animate__fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image"></div>
+            <div class="shape3"><img src="assets/img/shape3.png" class="wow animate__animated animate__fadeInLeft" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image"></div>
+            <div class="shape4"><img src="assets/img/shape4.png" class="wow animate__animated animate__fadeInRight" data-wow-delay="00ms" data-wow-duration="1500ms" alt="image"></div>
+        </section>
+
+
+
+
+{% endblock %}

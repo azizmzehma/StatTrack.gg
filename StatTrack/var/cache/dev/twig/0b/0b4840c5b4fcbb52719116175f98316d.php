@@ -77,22 +77,22 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 ";
         // line 285
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 406
+        // line 329
         echo "
 
-<div style=\"position:relative; left: 140px; top: 70px;\">
+<div class=\"container\" style=\"position:relative;left:150px;top: 60px;\">
 ";
-        // line 409
+        // line 332
         $this->displayBlock('body', $context, $blocks);
-        // line 416
+        // line 337
         echo "</div>
 
 
 
 ";
-        // line 420
+        // line 341
         $this->displayBlock('footer', $context, $blocks);
-        // line 436
+        // line 357
         echo "
 
 </body>
@@ -137,7 +137,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
         // line 9
         echo "
-      <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">
+
         <!-- Google Fonts -->
         <link href=\"https://fonts.gstatic.com\" rel=\"preconnect\">
         <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i\" rel=\"stylesheet\">
@@ -431,7 +431,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                 <li class=\"nav-item dropdown pe-3\">
 
                     <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
-                        <img src=\"assets/img/profile-img.jpg\" alt=\"Profile\" class=\"rounded-circle\">
+                        <img src=\"";
+        // line 222
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/profile-img.jpg"), "html", null, true);
+        echo "\" alt=\"Profile\" class=\"rounded-circle\" />
                         ";
         // line 223
         if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 223, $this->source); })()), "user", [], "any", false, false, false, 223) != null)) {
@@ -486,7 +489,10 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"#\">
+                            <a class=\"dropdown-item d-flex align-items-center\"href=\"";
+        // line 269
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("fronttournament");
+        echo "\">
                                 <i class=\"bi bi-box-arrow-right\"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -533,110 +539,30 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                 </a>
             </li><!-- End Dashboard Nav -->
 
-            <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"";
-        // line 300
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_main");
-        echo "\">
-                    <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Produit</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                </a>
-                <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                    <li>
-                        <a href=\"components-alerts.html\">
-                            <i class=\"bi bi-circle\"></i><span>Alerts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-accordion.html\">
-                            <i class=\"bi bi-circle\"></i><span>Accordion</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-badges.html\">
-                            <i class=\"bi bi-circle\"></i><span>Badges</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-breadcrumbs.html\">
-                            <i class=\"bi bi-circle\"></i><span>Breadcrumbs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-buttons.html\">
-                            <i class=\"bi bi-circle\"></i><span>Buttons</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-cards.html\">
-                            <i class=\"bi bi-circle\"></i><span>Cards</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-carousel.html\">
-                            <i class=\"bi bi-circle\"></i><span>Carousel</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-list-group.html\">
-                            <i class=\"bi bi-circle\"></i><span>List group</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-modal.html\">
-                            <i class=\"bi bi-circle\"></i><span>Modal</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-tabs.html\">
-                            <i class=\"bi bi-circle\"></i><span>Tabs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-pagination.html\">
-                            <i class=\"bi bi-circle\"></i><span>Pagination</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-progress.html\">
-                            <i class=\"bi bi-circle\"></i><span>Progress</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-spinners.html\">
-                            <i class=\"bi bi-circle\"></i><span>Spinners</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-tooltips.html\">
-                            <i class=\"bi bi-circle\"></i><span>Tooltips</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End Components Nav -->
+            
 
             <li class=\"nav-item\">
                 <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
                     <i class=\"bi bi-journal-text\"></i><span>Gestion Tournoi</span><i class=\"bi bi-chevron-down ms-auto\"></i>
                 </a>
                 <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                    <li>
+                    
+
                         <a href=\"";
-        // line 383
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_main");
-        echo "\">
-                            <i class=\"bi bi-circle\"></i><span>Match List</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"";
-        // line 388
+        // line 308
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_tournament_index");
         echo "\">
-                            <i class=\"bi bi-circle\"></i><span>Tournament List</span>
+                            <i class=\"bi bi-circle\"></i><span>Tournament list</span>
                         </a>
                     </li>
-                    
-                    
+                    <li>
+                        <a href=\"";
+        // line 313
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_main");
+        echo "\">
+                            <i class=\"bi bi-circle\"></i><span>Match list </span>
+                        </a>
+                    </li>
                 </ul>
             </li><!-- End Forms Nav -->
 
@@ -657,7 +583,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 409
+    // line 332
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -667,12 +593,8 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 410
-        echo "<a href=\"";
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("route_name");
-        echo "\">
-   <i class=\"fas fa-arrow-left\"></i>
-</a>
+        // line 333
+        echo "
 
 
 ";
@@ -684,7 +606,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     }
 
-    // line 420
+    // line 341
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -694,11 +616,11 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 421
+        // line 342
         echo "    <!-- ======= Footer ======= -->
-    <footer id=\"footer\" class=\"footer\" style=\"top: 150px\">
+    <footer id=\"footer\" class=\"footer\">
         <div class=\"copyright\">
-            &copy; Copyright <strong><span>StatTrack</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Stat Track</span></strong>. All Rights Reserved
         </div>
         <div class=\"credits\">
             <!-- All the links in the footer should remain intact. -->
@@ -725,7 +647,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
     public function getDebugInfo()
     {
-        return array (  698 => 421,  688 => 420,  671 => 410,  661 => 409,  633 => 388,  625 => 383,  539 => 300,  523 => 286,  513 => 285,  447 => 227,  442 => 225,  439 => 224,  437 => 223,  262 => 50,  252 => 49,  238 => 41,  232 => 38,  228 => 37,  224 => 36,  220 => 35,  216 => 34,  212 => 33,  208 => 32,  204 => 31,  200 => 29,  190 => 28,  178 => 25,  172 => 22,  168 => 21,  164 => 20,  160 => 19,  156 => 18,  152 => 17,  148 => 16,  139 => 9,  129 => 8,  110 => 5,  96 => 436,  94 => 420,  88 => 416,  86 => 409,  81 => 406,  79 => 285,  76 => 284,  74 => 49,  68 => 45,  66 => 28,  63 => 27,  60 => 8,  56 => 5,  50 => 1,);
+        return array (  620 => 342,  610 => 341,  597 => 333,  587 => 332,  561 => 313,  553 => 308,  529 => 286,  519 => 285,  494 => 269,  450 => 227,  445 => 225,  442 => 224,  440 => 223,  436 => 222,  262 => 50,  252 => 49,  238 => 41,  232 => 38,  228 => 37,  224 => 36,  220 => 35,  216 => 34,  212 => 33,  208 => 32,  204 => 31,  200 => 29,  190 => 28,  178 => 25,  172 => 22,  168 => 21,  164 => 20,  160 => 19,  156 => 18,  152 => 17,  148 => 16,  139 => 9,  129 => 8,  110 => 5,  96 => 357,  94 => 341,  88 => 337,  86 => 332,  81 => 329,  79 => 285,  76 => 284,  74 => 49,  68 => 45,  66 => 28,  63 => 27,  60 => 8,  56 => 5,  50 => 1,);
     }
 
     public function getSourceContext()
@@ -739,7 +661,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
 
-      <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">
+
         <!-- Google Fonts -->
         <link href=\"https://fonts.gstatic.com\" rel=\"preconnect\">
         <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i\" rel=\"stylesheet\">
@@ -951,7 +873,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                 <li class=\"nav-item dropdown pe-3\">
 
                     <a class=\"nav-link nav-profile d-flex align-items-center pe-0\" href=\"#\" data-bs-toggle=\"dropdown\">
-                        <img src=\"assets/img/profile-img.jpg\" alt=\"Profile\" class=\"rounded-circle\">
+                        <img src=\"{{ asset('assets/img/profile-img.jpg') }}\" alt=\"Profile\" class=\"rounded-circle\" />
                         {% if app.user !=null %}
 
                             <span class=\"d-none d-md-block dropdown-toggle ps-2\">{{ app.user.username }}</span>
@@ -998,7 +920,7 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                         </li>
 
                         <li>
-                            <a class=\"dropdown-item d-flex align-items-center\" href=\"#\">
+                            <a class=\"dropdown-item d-flex align-items-center\"href=\"{{ path('fronttournament') }}\">
                                 <i class=\"bi bi-box-arrow-right\"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -1028,101 +950,24 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
                 </a>
             </li><!-- End Dashboard Nav -->
 
-            <li class=\"nav-item\">
-                <a class=\"nav-link collapsed\" data-bs-target=\"#components-nav\" data-bs-toggle=\"collapse\" href=\"{{ path('app_main') }}\">
-                    <i class=\"bi bi-menu-button-wide\"></i><span>Gestion Produit</span><i class=\"bi bi-chevron-down ms-auto\"></i>
-                </a>
-                <ul id=\"components-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
-                    <li>
-                        <a href=\"components-alerts.html\">
-                            <i class=\"bi bi-circle\"></i><span>Alerts</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-accordion.html\">
-                            <i class=\"bi bi-circle\"></i><span>Accordion</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-badges.html\">
-                            <i class=\"bi bi-circle\"></i><span>Badges</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-breadcrumbs.html\">
-                            <i class=\"bi bi-circle\"></i><span>Breadcrumbs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-buttons.html\">
-                            <i class=\"bi bi-circle\"></i><span>Buttons</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-cards.html\">
-                            <i class=\"bi bi-circle\"></i><span>Cards</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-carousel.html\">
-                            <i class=\"bi bi-circle\"></i><span>Carousel</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-list-group.html\">
-                            <i class=\"bi bi-circle\"></i><span>List group</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-modal.html\">
-                            <i class=\"bi bi-circle\"></i><span>Modal</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-tabs.html\">
-                            <i class=\"bi bi-circle\"></i><span>Tabs</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-pagination.html\">
-                            <i class=\"bi bi-circle\"></i><span>Pagination</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-progress.html\">
-                            <i class=\"bi bi-circle\"></i><span>Progress</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-spinners.html\">
-                            <i class=\"bi bi-circle\"></i><span>Spinners</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href=\"components-tooltips.html\">
-                            <i class=\"bi bi-circle\"></i><span>Tooltips</span>
-                        </a>
-                    </li>
-                </ul>
-            </li><!-- End Components Nav -->
+            
 
             <li class=\"nav-item\">
                 <a class=\"nav-link collapsed\" data-bs-target=\"#forms-nav\" data-bs-toggle=\"collapse\" href=\"#\">
                     <i class=\"bi bi-journal-text\"></i><span>Gestion Tournoi</span><i class=\"bi bi-chevron-down ms-auto\"></i>
                 </a>
                 <ul id=\"forms-nav\" class=\"nav-content collapse \" data-bs-parent=\"#sidebar-nav\">
+                    
+
+                        <a href=\"{{ path('app_tournament_index') }}\">
+                            <i class=\"bi bi-circle\"></i><span>Tournament list</span>
+                        </a>
+                    </li>
                     <li>
                         <a href=\"{{ path('app_main') }}\">
-                            <i class=\"bi bi-circle\"></i><span>Match List</span>
+                            <i class=\"bi bi-circle\"></i><span>Match list </span>
                         </a>
                     </li>
-                    <li>
-                        <a href=\"{{ path('app_tournament_index') }}\">
-                            <i class=\"bi bi-circle\"></i><span>Tournament List</span>
-                        </a>
-                    </li>
-                    
-                    
                 </ul>
             </li><!-- End Forms Nav -->
 
@@ -1137,11 +982,9 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 {% endblock %}
 
 
-<div style=\"position:relative; left: 140px; top: 70px;\">
+<div class=\"container\" style=\"position:relative;left:150px;top: 60px;\">
 {% block body %}
-<a href=\"{{ path('route_name') }}\">
-   <i class=\"fas fa-arrow-left\"></i>
-</a>
+
 
 
 {% endblock %}
@@ -1151,9 +994,9 @@ class __TwigTemplate_d37d1c3621cb1b31c9f974580366ac09 extends Template
 
 {% block footer %}
     <!-- ======= Footer ======= -->
-    <footer id=\"footer\" class=\"footer\" style=\"top: 150px\">
+    <footer id=\"footer\" class=\"footer\">
         <div class=\"copyright\">
-            &copy; Copyright <strong><span>StatTrack</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>Stat Track</span></strong>. All Rights Reserved
         </div>
         <div class=\"credits\">
             <!-- All the links in the footer should remain intact. -->

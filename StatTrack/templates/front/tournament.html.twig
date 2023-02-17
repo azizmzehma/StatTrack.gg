@@ -1,0 +1,38 @@
+{% extends 'front.html.twig' %}
+
+{% block Title %}TOURNAMENT{% endblock %}
+
+{% block body %}
+<section class="blog-area ptb-100">
+            <div class="container">
+                <div class="section-title">
+                    <span class="sub-title">Tournament</span>
+                    <h2>latest tournament</h2>
+                </div>
+                
+                <div class="blog-slides-two owl-carousel owl-theme">
+                {% for tournament in tournaments %}
+                    <div class="single-blog-post">
+                        <div class="post-image">
+                            <a href="single-blog-1.html" class="d-block">
+                                <img src="{{ asset('assets/img/' ~ tournament.photo) }}" alt="{{ tournament.photo }}">
+        
+                            </a>
+                        </div>
+
+                        <div class="post-content">
+                            <span class="sub-title">{{ tournament.name }}</span>
+                            <h3><a href="single-blog-1.html">ANDROID TOOLS FOR MOBILE GAME</a></h3>
+                           
+                            <a class="default-btn" href="{{ path('front_show_tournament',{'id': tournament.id }) }}">show</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+
+
+
+{% endblock %}

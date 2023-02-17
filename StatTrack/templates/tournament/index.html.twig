@@ -3,49 +3,75 @@
 {% block title %}Tournament index{% endblock %}
 
 {% block body %}
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+
+<!-- jQuery -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<!-- DataTables JS -->
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+
 <div class="container">
     <h1>Tournament List</h1>
 
-    <table class="table table-hover">
+   <table id="tournaments" class="table table-hover">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>description</th>
-                <th>prise</th>
-                <th>Startdate</th>
-                <th>Enddate</th>
-                <th>photo</th>
-                <th>actions</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Prise</th>
+            <th>Startdate</th>
+            <th>Enddate</th>
+            <th>Photo</th>
+            <th>Actions</th>
             </tr>
-        </thead>
+         </thead>
         <tbody>
         {% for tournament in tournaments %}
-            <tr>
-                <td>{{ tournament.id }}</td>
-                <td>{{ tournament.name }}</td>
-                <td>{{ tournament.description }}</td>
-                <td>{{ tournament.prise }}</td>
-                <td>{{ tournament.startdate ? tournament.startdate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ tournament.enddate ? tournament.enddate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ tournament.photo }}</td>
-                
-                
-                <td>
-                <a class="btn btn-warning" href="{{ path('app_tournament_show',{'id': tournament.id }) }}">show</a>
-                <a class="btn btn-danger" href="{{ path('app_tournament_edit',{'id': tournament.id }) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+     <tr>
+      <td>{{ tournament.id }}</td>
+      <td>{{ tournament.name }}</td>
+      <td>{{ tournament.description }}</td>
+      <td>{{ tournament.prise }}</td>
+      <td>{{ tournament.startdate ? tournament.startdate|date('Y-m-d H:i:s') : '' }}</td>
+      <td>{{ tournament.enddate ? tournament.enddate|date('Y-m-d H:i:s') : '' }}</td>
+      <td>
+        <img src="{{ asset('assets/img/' ~ tournament.photo) }}" alt="{{ tournament.photo }}" style="width: 75px; height: 75;">
+      </td>
+      <td>
+        <a class="btn btn-warning" href="{{ path('app_tournament_show',{'id': tournament.id }) }}">show</a>
+        <a class="btn btn-danger" href="{{ path('app_tournament_edit',{'id': tournament.id }) }}">edit</a>
+      </td>
+    </tr>
+  {% else %}
+    <tr>
+      <td colspan="8">no records found</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#tournaments').DataTable({
+    "paging": true,
+    "pageLength": 5,
+  });
+});
+</script>
+    
 
     <div class="create botton">
      <a class="btn btn-warning mt-4 mb-b" href="{{ path('app_tournament_new') }}">Create tournament</a> 
     </div>
     </div>
+    <style>
+.tournament-photo {
+    width: 20;
+    height: 20;
+    object-fit: cover;
+}
+</style>
 {% endblock %}
