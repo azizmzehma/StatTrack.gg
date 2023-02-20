@@ -6,6 +6,9 @@ use App\Entity\Subscription;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
+use Knp\Component\Pager\Pagination\PaginationInterface;
+use Knp\Component\Pager\PaginatorInterface;
+
 /**
  * @extends ServiceEntityRepository<Subscription>
  *
@@ -15,10 +18,19 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Subscription[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class SubscriptionRepository extends ServiceEntityRepository
-{
-    public function __construct(ManagerRegistry $registry)
+{   public PaginatorInterface $paginator;
+    public function __construct(ManagerRegistry $registry,PaginatorInterface $paginator)
     {
         parent::__construct($registry, Subscription::class);
+        $this->paginator = $paginator;
+    }
+    public function paginate(int $page, int $limit): PaginationInterface
+    {
+        $query = $this->createQueryBuilder('s')
+            ->orderBy('s.id', 'ASC')
+            ->getQuery();
+
+        return $this->paginator->paginate($query, $page, $limit);
     }
 
     public function save(Subscription $entity, bool $flush = false): void

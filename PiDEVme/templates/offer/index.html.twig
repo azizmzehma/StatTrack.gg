@@ -2,22 +2,15 @@
 
 {% block title %}List of offers{% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/indexOffer.css') }}">
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    <script src="{{ asset('js/indexOffer.js') }}"></script>
-{% endblock %}
-
 {% block body %}
-    <div class="container">
+<div class="container d-flex justify-content-md-center" style="max-width: 800px;">
+    <div class="card shadow-lg">
+        <div class="card-header">
 
-        <h1>List of offers</h1>
-
-        <table class="table table-hover">
+        <h4>List of offers</h4>
+        </div>
+        <div class="card-body">
+        <table class="table table-hover " id="tournaments">
             <thead>
             <tr>
                 <th>ID</th>
@@ -67,4 +60,8 @@
         {% endfor %}
 
     </div>
+    </div>  </div> </div>
+{% endblock %}
+{% block footer %}
+
 {% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Knp\Component\Pager\Pagination\PaginationInterface;
 use App\Entity\Subscription;
 use App\Entity\Offer;
 use App\Form\OfferType;
@@ -20,6 +21,21 @@ class OfferController extends AbstractController
         $offers = $entityManager->getRepository(Offer::class)->findAll();
 
         return $this->render('offer/index.html.twig', ['offers' => $offers]);
+    }
+
+    #[Route('/offerfront', name: 'app_offerr')]
+    public function indexfront(EntityManagerInterface $entityManager): Response
+    {
+        $offers = $entityManager->getRepository(Offer::class)->findAll();
+        $query = $entityManager->createQueryBuilder()
+            ->select('o')
+            ->from(Offer::class, 'o')
+            ->orderBy('o.duration', 'ASC')
+            ->getQuery();
+
+        $offers = $query->getResult();
+
+        return $this->render('offer front/index.html.twig', ['offers' => $offers]);
     }
 
     #[Route('/add_offer', name: 'add_offer')]
